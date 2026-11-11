@@ -1,0 +1,45 @@
+# Satwik — Developer Portfolio
+
+A single-page Next.js portfolio with a 7.13-second WebGL title sequence and a static export. The hero uses beveled Inter glyphs, a procedural reflection map, and GPU particles sampled from Satwik’s masked portrait. The intro can be skipped with its control or Escape and replayed on demand. Reduced-motion visitors get the finished composition immediately. Lower-capability and WebGL-disabled devices get the same static composition. The settled portrait uses a locally generated stipple layer, so the hero stays visibly particulate after WebGL teardown.
+
+## Run locally
+
+Use Node.js 24 LTS with npm. Next.js requires Node.js 20.9 or later.
+
+```sh
+npm ci
+npm run dev
+```
+
+Open [the local portfolio](http://127.0.0.1:3000/).
+
+```sh
+npm run lint
+npm run typecheck
+npm run build
+python3 -m http.server 4173 --bind 127.0.0.1 --directory out
+```
+
+Open [the production build](http://127.0.0.1:4173/). Serve the export over HTTP so the browser can load its scripts and assets.
+
+## Deploy
+
+- For a static host, publish the contents of `out/` at the site root. [Next.js static export guide](https://nextjs.org/docs/app/guides/static-exports)
+- For Vercel, import the project with the Next.js preset or run `vercel deploy` from the project root with an authenticated CLI. Use the Preview environment and its deployment protection when access should be restricted. [Vercel deployment environments](https://vercel.com/docs/deployments/environments)
+- Set `NEXT_PUBLIC_SITE_URL` to the final HTTPS origin before building to include the canonical URL and the supplied Open Graph and Twitter image. No credentials are needed to build or serve the portfolio.
+
+## Edit content and motion
+
+- `lib/content.ts` defines navigation, project details, skills, the timeline, and profile links. The contact CTA opens Satwik’s LinkedIn profile, where signed-in visitors can connect or message according to LinkedIn’s settings.
+- `lib/hero-motion.ts` schedules the intro. `lib/hero-scene.ts` handles the 3D letters and rendering lifecycle. `lib/portrait-points.ts` handles portrait sampling and the GLSL transition.
+- `public/portrait.webp` is the masked image used by both the hero and the point cloud. `public/portrait-editorial.webp` is the About portrait. Project artwork is illustrative, and the links lead to the actual projects.
+- The 214-frame portfolio reference informed the timing, wide silver typography, particle texture, and scroll into Intro. The original footage and its caption are excluded from the site. The reusable palette, typography, spacing, and storyboard are in `design-dna.json`.
+- `components/lottie-glyph.tsx` renders original local motion cues with the LottieFiles dotLottie runtime. The build copies its WebAssembly into the static export. It runs on demand and retains the outline icons as fallbacks.
+- Font notices are bundled in `public/licenses/`.
+
+## Design references
+
+- [Design DNA](https://github.com/zanwei/design-dna) by Zanwei guided the color measurement, design profile and screenshot audit.
+- [Unslop](https://github.com/heydamir/unslop) by Damir Sokolovsky guided the polish pass, including the removal of duplicate labels and decorative crosshairs.
+- The expanding marker in the primary CTA adapts [Magic UI’s Interactive Hover Button on 21st.dev](https://preview.21st.dev/%40dillionverma/components/interactive-hover-button), an MIT-licensed pattern. It uses semantic anchors, local styling and a Lottie arrow.
+- [Three.js](https://threejs.org/docs/) renders the opening scene. [GSAP ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/) and [SplitText](https://gsap.com/docs/v3/Plugins/SplitText/) handle the scroll transition and closing headline.
