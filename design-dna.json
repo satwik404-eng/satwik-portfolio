@@ -1,0 +1,478 @@
+{
+  "meta": {
+    "name": "Satwik Portfolio",
+    "description": "Reference-derived system for a student developer portfolio. Crop excludes the promotional caption and letterboxing.",
+    "source_references": [
+      "Supplied portrait",
+      "Portfolio reference MP4, 214 frames at 30 fps (7.13 seconds of picture), cropped to its embedded website",
+      "Unslop craft audit of the previous desktop and phone captures"
+    ],
+    "created_at": "2026-11-12"
+  },
+  "design_system": {
+    "color": {
+      "palette_type": "monochromatic",
+      "primary": {
+        "hex": "#e7e9eb",
+        "role": "primary text and chrome highlights"
+      },
+      "secondary": {
+        "hex": "#aab0bc",
+        "role": "supporting copy"
+      },
+      "accent": {
+        "hex": "#bfcbd4",
+        "role": "focus and active controls, adapted from the reference’s icy particle highlights"
+      },
+      "neutral": {
+        "scale": [
+          "#e7e9eb",
+          "#cfd3d9",
+          "#aab0bc",
+          "#8a919e",
+          "#6b717c",
+          "#4b4f56",
+          "#212326",
+          "#050706"
+        ],
+        "usage": "Lightest for text. Middle grays support material shading. Darkest sampled tone informs the #050507 site background."
+      },
+      "semantic": {
+        "success": "#a1c7ae",
+        "warning": "#d7bb8c",
+        "error": "#e2a4a2",
+        "info": "#bfcbd4"
+      },
+      "surface": {
+        "background": "#050706",
+        "card": "#101112",
+        "elevated": "#17191c"
+      },
+      "contrast_strategy": "High contrast text on charcoal. Reserve the darker ramp for the oversized metal title and decorative surfaces.",
+      "measurement": {
+        "k": 8,
+        "sampling": {
+          "method": "deterministic_stratified",
+          "max_pixels": 160000,
+          "sampled_pixels": 160000
+        }
+      },
+      "measured_palette": [
+        {
+          "hex": "#050706",
+          "coverage": 0.836,
+          "role": "background"
+        },
+        {
+          "hex": "#212326",
+          "coverage": 0.0307,
+          "role": "unassigned"
+        },
+        {
+          "hex": "#6b717c",
+          "coverage": 0.0266,
+          "role": "unassigned"
+        },
+        {
+          "hex": "#e7e9eb",
+          "coverage": 0.0243,
+          "role": "text"
+        },
+        {
+          "hex": "#8a919e",
+          "coverage": 0.0241,
+          "role": "unassigned"
+        },
+        {
+          "hex": "#4b4f56",
+          "coverage": 0.0217,
+          "role": "unassigned"
+        },
+        {
+          "hex": "#aab0bc",
+          "coverage": 0.0195,
+          "role": "unassigned"
+        },
+        {
+          "hex": "#cfd3d9",
+          "coverage": 0.0171,
+          "role": "unassigned"
+        }
+      ]
+    },
+    "typography": {
+      "type_scale": {
+        "display": {
+          "size": "12.55vw capped at 15rem",
+          "weight": 900,
+          "line_height": 0.85,
+          "tracking": "0"
+        },
+        "heading_1": {
+          "size": "12.55vw capped at 15rem",
+          "weight": 900,
+          "line_height": 0.85,
+          "tracking": "0"
+        },
+        "heading_2": {
+          "size": "4rem–11rem",
+          "weight": 800,
+          "line_height": 0.84,
+          "tracking": "-0.025em"
+        },
+        "heading_3": {
+          "size": "1.55rem–2.6rem",
+          "weight": 620,
+          "line_height": 1.1,
+          "tracking": "-0.04em"
+        },
+        "body": {
+          "size": "0.91rem–1.04rem",
+          "weight": 400,
+          "line_height": 1.72,
+          "tracking": "0"
+        },
+        "body_small": {
+          "size": "0.81rem",
+          "weight": 520,
+          "line_height": 1.5,
+          "tracking": "0"
+        },
+        "caption": {
+          "size": "0.69rem",
+          "weight": 400,
+          "line_height": 1.6,
+          "tracking": "0.025em"
+        },
+        "overline": {
+          "size": "0.69rem",
+          "weight": 400,
+          "line_height": 1.4,
+          "tracking": "0.045em"
+        }
+      },
+      "font_families": {
+        "heading": "Inter Variable for the chrome hero; Barlow Condensed for editorial headings",
+        "body": "Inter Variable",
+        "mono": "IBM Plex Mono"
+      },
+      "font_style_notes": "The reference is a broad grotesk with tight tracking. Use a condensed partner lower on the page for editorial scale."
+    },
+    "spacing": {
+      "base_unit": "4px",
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        48,
+        64,
+        80,
+        112,
+        144
+      ],
+      "content_density": "Spacious hero, compact chrome, comfortable reading measure",
+      "section_rhythm": "Shorter hero-to-Intro gap, longer separation between major sections"
+    },
+    "layout": {
+      "grid_system": "Fluid editorial grid",
+      "max_content_width": "1600px",
+      "columns": "12 desktop / 4 mobile",
+      "gutter": "20–112px",
+      "breakpoints": [
+        760,
+        900
+      ],
+      "alignment_tendency": "Centered title and portrait, supporting content aligned to the title edges. Intro uses an asymmetric text and image panel."
+    },
+    "shape": {
+      "border_radius": {
+        "small": "0px",
+        "medium": "4px",
+        "large": "8px",
+        "pill": "999px"
+      },
+      "border_usage": "One-pixel neutral hairlines",
+      "divider_style": "Quiet solid rules"
+    },
+    "elevation": {
+      "shadow_style": "Soft dark contact shadows reserved for the title and project artwork",
+      "levels": {
+        "low": "none",
+        "medium": "0 8px 18px #0006",
+        "high": "0 16px 45px #000b"
+      },
+      "depth_cues": "Overlapping type and portrait, brighter bevels, dim background"
+    },
+    "iconography": {
+      "style": "Open line icons",
+      "stroke_weight": "1.5px",
+      "size_scale": [
+        14,
+        16,
+        18
+      ],
+      "preferred_set": "Local outline set and authored Lottie glyphs"
+    },
+    "motion": {
+      "easing": "Magnetic ease-out for glyphs, power2/3 GSAP easing, short feedback",
+      "duration_scale": {
+        "micro": "180–380ms",
+        "normal": "500–900ms",
+        "macro": "7.13s"
+      },
+      "entrance_pattern": "Origin, converging name, left-to-right word replacement, title lowers, point cloud assembles, navigation and support appear.",
+      "exit_pattern": "Scrub portrait upward and dim it as Intro rises into view.",
+      "philosophy": "Cinematic opening with quiet, event-driven interactions afterwards.",
+      "storyboard": {
+        "origin": 0.16,
+        "assembly": 0.78,
+        "name": 2.2,
+        "titleStart": 2.42,
+        "title": 3.2,
+        "titleLowered": 4.06,
+        "particles": 4.26,
+        "navigation": 4.58,
+        "portrait": 5.58,
+        "finish": 7.13
+      }
+    },
+    "components": {
+      "button_style": "Off-white primary anchor with an expanding round marker and arrow; charcoal secondary anchor.",
+      "input_style": "No form on this portfolio. Preserve visible focus on interactive controls.",
+      "card_style": "Editorial project previews with a hairline and restrained pointer tilt",
+      "navigation_pattern": "Wordmark and right-aligned anchors; disclosure on mobile",
+      "modal_style": "No modal in the page flow",
+      "list_style": "Ruled Skills disclosures and a vertical Journey line",
+      "component_notes": "Use explicit action labels. Keep uppercase for the display typography."
+    }
+  },
+  "design_style": {
+    "aesthetic": {
+      "mood": [
+        "quiet",
+        "precise",
+        "nocturnal"
+      ],
+      "visual_metaphor": "Silver typography and a face made out of reflected light",
+      "era_influence": "Contemporary digital title design",
+      "genre": "Cinematic editorial portfolio",
+      "personality_traits": [
+        "curious",
+        "technically minded",
+        "reserved"
+      ],
+      "adjectives": [
+        "dense",
+        "restrained",
+        "tactile"
+      ]
+    },
+    "visual_language": {
+      "complexity": "Concentrated in the hero",
+      "ornamentation": "Subtle grain and minimal icons",
+      "whitespace_usage": "Generous around the particle portrait and section titles",
+      "visual_weight_distribution": "Heavy typography over quiet controls",
+      "focal_strategy": "Progressive reveal",
+      "contrast_level": "High foreground contrast with dark peripheral detail",
+      "texture_usage": "Soft neutral halo and a stippled portrait"
+    },
+    "composition": {
+      "hierarchy_method": "Scale and layer order",
+      "balance_type": "Symmetric hero, asymmetric Intro and project grid",
+      "flow_direction": "Center to lower-center, then downward into Intro",
+      "grouping_strategy": "Title and support are one unit, portrait remains behind",
+      "negative_space_role": "Gives the earliest point and moving glyphs room"
+    },
+    "imagery": {
+      "photo_treatment": "Monochrome original photo with its background masked, densely sampled stipple, minimal sharp blend",
+      "illustration_style": "Project-specific artwork based on real projects",
+      "graphic_elements": "Chrome outline, hairlines, timeline",
+      "pattern_usage": "Neutral grain",
+      "image_shape": "Free silhouette in the hero, rectangular editorial crop"
+    },
+    "interaction_feel": {
+      "feedback_style": "Short local motion on meaningful controls",
+      "hover_behavior": "Fine-pointer tilt, magnetic CTA pull, tiny portrait drift",
+      "transition_personality": "Accelerates into a firm settle",
+      "loading_style": "Short orbit indicator while the renderer initializes",
+      "microinteraction_density": "Low"
+    },
+    "brand_voice_in_ui": {
+      "tone": "Specific, first person, curious",
+      "formality": "Conversational",
+      "cta_style": "Direct actions",
+      "empty_state_approach": "Use verified work and omit unavailable links",
+      "error_tone": "Fall back to the finished composition"
+    }
+  },
+  "visual_effects": {
+    "overview": {
+      "effect_intensity": "heavy-immersive opening, subtle after",
+      "performance_tier": "WebGL during the intro, event-driven after it",
+      "fallback_strategy": "Static hero for reduced motion and unsupported WebGL; no animation dependency for navigation",
+      "primary_technology": "Three.js, GSAP and LottieFiles dotLottie"
+    },
+    "background_effects": {
+      "type": "noise-field",
+      "description": "Dark radial stage and restrained texture",
+      "technology": "CSS and WebP",
+      "params": {
+        "color_palette": [
+          "#050507",
+          "#141618"
+        ],
+        "speed": "Static",
+        "density": "Low",
+        "opacity": 0.12,
+        "blend_mode": "Screen"
+      }
+    },
+    "particle_systems": {
+      "enabled": true,
+      "type": "custom",
+      "description": "Photographic point cloud follows the masked face and overshirt",
+      "technology": "Three.js Points",
+      "params": {
+        "count": "10500 mobile / 27600 desktop",
+        "shape": "soft sparks",
+        "size_range": "0.85–3.4 device-adjusted px",
+        "movement_pattern": "Disperse, delay by seed, converge in curved paths",
+        "color_behavior": "Silver with cool glints proportional to masked image luminance",
+        "interaction": "Small pointer displacement",
+        "spawn_area": "Scattered around the image plane with signed depth"
+      }
+    },
+    "3d_elements": {
+      "enabled": true,
+      "type": "text-extrusion",
+      "description": "Actual beveled glyphs converge and exchange in sequence",
+      "technology": "Three.js",
+      "params": {
+        "renderer": "WebGL2 with capped pixel ratio",
+        "lighting": "Directional key and rim plus generated reflection environment",
+        "camera": "Perspective camera for letters and orthographic canvas for portrait",
+        "materials": "Reflective silver with directional tonal falloff",
+        "geometry": "ExtrudeGeometry from Inter outlines",
+        "post_processing": [],
+        "interaction_model": "Timeline-driven, interruptible with Skip or Escape"
+      }
+    },
+    "shader_effects": {
+      "enabled": true,
+      "type": "custom-GLSL",
+      "description": "Interpolate scattered and sampled vertex coordinates",
+      "technology": "Three.js ShaderMaterial",
+      "params": {
+        "uniforms": [
+          "progress",
+          "time",
+          "pointer",
+          "opacity",
+          "dpr"
+        ],
+        "vertex_manipulation": "Depth-weighted interpolation",
+        "fragment_output": "Additive circular point sprites",
+        "noise_type": "Seeded trigonometric displacement",
+        "distortion": "Subtle trajectory curvature only"
+      }
+    },
+    "scroll_effects": {
+      "parallax": {
+        "enabled": true,
+        "layers": 3,
+        "depth_range": "Portrait shifts and dims ahead of title; Intro advances under it.",
+        "speed_curve": "ScrollTrigger scrub"
+      },
+      "scroll_triggered_animations": {
+        "enabled": true,
+        "trigger_points": [
+          "Hero exit",
+          "Intro entrance",
+          "Project previews",
+          "Journey",
+          "Contact"
+        ],
+        "animation_type": "Scrubbed transform and masked title reveal",
+        "scrub_behavior": "Smooth scrub for depth, once for content reveals"
+      },
+      "scroll_morphing": {
+        "enabled": true,
+        "description": "Portrait recedes and breaks into stipple while the chrome title moves upward into the Intro reveal."
+      }
+    },
+    "text_effects": {
+      "type": "3d-extrude and split-letter-animate",
+      "description": "Foreground letters move in 3D, Contact resolves in short staggered words",
+      "technology": "Three.js and GSAP SplitText",
+      "params": {
+        "split_strategy": "Glyph for hero and word for Contact",
+        "animation_per_unit": "Arc and tumble; masked vertical reveal for contact words",
+        "stagger": "35–170ms",
+        "effect_style": "Weighted, polished silver"
+      }
+    },
+    "cursor_effects": {
+      "enabled": true,
+      "type": "magnetic-buttons",
+      "description": "Gentle pointer response on hero and CTAs",
+      "params": {
+        "shape": "Native pointer",
+        "size": "Native",
+        "blend_mode": "Normal",
+        "trail": "None",
+        "interaction_zone": "Hero and buttons, fine pointer only"
+      }
+    },
+    "image_effects": {
+      "type": "reveal-clip",
+      "description": "Identity-preserving masked portrait and particulate blend",
+      "technology": "WebP and GLSL",
+      "params": {
+        "filter_pipeline": "Grayscale, alpha mask, luminance-biased point sampling",
+        "hover_transform": "Small translate",
+        "reveal_animation": "GPU convergence to a layered stipple still",
+        "distortion_type": "None"
+      }
+    },
+    "glassmorphism_neumorphism": {
+      "enabled": false,
+      "style": "None",
+      "params": {
+        "blur_radius": 0,
+        "transparency": 0,
+        "border_treatment": "Hairline",
+        "shadow_type": "None",
+        "light_source_angle": 0
+      }
+    },
+    "canvas_drawings": {
+      "enabled": true,
+      "type": "lottie",
+      "description": "Purposeful one-shot vector gestures",
+      "technology": "LottieFiles dotLottie web canvas",
+      "params": {
+        "draw_method": "Original shape paths rendered in WASM",
+        "animation_loop": "None",
+        "color_scheme": "Neutral silver and charcoal",
+        "responsiveness": "Fixed CSS icon footprint",
+        "interaction": "Pending, scroll hint, menu and contact activation"
+      }
+    },
+    "svg_animations": {
+      "enabled": false,
+      "type": "None",
+      "description": "Static outline fallbacks accompany the Lottie canvas.",
+      "params": {
+        "animation_method": "None",
+        "path_morphing": false,
+        "stroke_animation": false,
+        "filter_effects": "None"
+      }
+    },
+    "composite_notes": "Exclude the social caption, embedded creator credit, sample biography and demo name from the deliverable. The measured frame includes the reference’s own controls and portrait, so palette coverage may shift with Satwik’s photo, wider breakpoints and actual content. Preserve native scrolling and teardown the WebGL canvas on completion."
+  }
+}

@@ -43,3 +43,9 @@ Open [the production build](http://127.0.0.1:4173/). Serve the export over HTTP 
 - [Unslop](https://github.com/heydamir/unslop) by Damir Sokolovsky guided the polish pass, including the removal of duplicate labels and decorative crosshairs.
 - The expanding marker in the primary CTA adapts [Magic UI’s Interactive Hover Button on 21st.dev](https://preview.21st.dev/%40dillionverma/components/interactive-hover-button), an MIT-licensed pattern. It uses semantic anchors, local styling and a Lottie arrow.
 - [Three.js](https://threejs.org/docs/) renders the opening scene. [GSAP ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/) and [SplitText](https://gsap.com/docs/v3/Plugins/SplitText/) handle the scroll transition and closing headline.
+
+## Update the learning journal
+
+Project case studies, semester assignments, skills, and certificate metadata live in `lib/learning.ts`. Add projects to a semester by ID. Use `semester: null` when the assignment is unknown. The timeline shows only the data entered for current and completed semesters. Keep future semesters marked Planned until there is work to show. [Academic calendar](https://www.iiitnr.edu.in/content/academic-calendar)
+
+The carousel uses native scroll snapping. The detail view uses a native dialog and GSAP Flip, with a static transition when reduced motion is enabled. OpenWall and BeforeYouGo use project artwork. The 404 preview shows the public game landing page.
