@@ -4,16 +4,23 @@ import { cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 const exported = new URL('../out/', import.meta.url);
 const output = new URL('../.vercel/output/', import.meta.url);
 const inlineScripts = new Set();
+const inlineStyles = new Set();
+
+function cspHash(content) {
+  const hash = createHash('sha256').update(content.replace(/\r\n?/g, '\n')).digest('base64');
+  return `'sha256-${hash}'`;
+}
 
 for (const entry of await readdir(exported, { recursive: true, withFileTypes: true })) {
   if (!entry.isFile() || !entry.name.endsWith('.html')) continue;
   const html = await readFile(entry.parentPath + '/' + entry.name, 'utf8');
-  // Next emits complete script elements in its static HTML. Hash the script
-  // text as the browser sees it after HTML newline normalization.
+  // Next emits complete script and style elements in the static export.
   for (const [, attributes, script] of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)) {
     if (!script || /(?:^|\s)src\s*=/i.test(attributes)) continue;
-    const hash = createHash('sha256').update(script.replace(/\r\n?/g, '\n')).digest('base64');
-    inlineScripts.add(`'sha256-${hash}'`);
+    inlineScripts.add(cspHash(script));
+  }
+  for (const [, style] of html.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/gi)) {
+    if (style) inlineStyles.add(cspHash(style));
   }
 }
 
@@ -27,7 +34,7 @@ const policy = [
   "object-src 'none'",
   `script-src 'self' 'wasm-unsafe-eval' ${[...inlineScripts].sort().join(' ')}`,
   "script-src-attr 'none'",
-  "style-src 'self'",
+  ["style-src 'self'", ...[...inlineStyles].sort()].join(' '),
   "style-src-attr 'unsafe-inline'",
   "font-src 'self'",
   "img-src 'self' data:",
